@@ -1,11 +1,13 @@
 package sidahmed.springframework.spring6webapp.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import sidahmed.springframework.spring6webapp.domain.Author;
 import sidahmed.springframework.spring6webapp.domain.Book;
 import sidahmed.springframework.spring6webapp.repositories.AuthorRepository;
 import sidahmed.springframework.spring6webapp.repositories.BookRepository;
 
+@Component
 public class BookstrapData implements CommandLineRunner {
 
     private final AuthorRepository authorRepository;
@@ -44,6 +46,9 @@ public class BookstrapData implements CommandLineRunner {
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEJBSaved);
 
+        authorRepository.save(ericSaved);
+        authorRepository.save(rodSaved);
+        
         System.out.println("In Bootstrap");
         System.out.println("Author Count: " + authorRepository.count());
         System.out.println("Book Count: " + bookRepository.count());
