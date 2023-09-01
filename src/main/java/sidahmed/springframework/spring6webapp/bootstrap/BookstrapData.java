@@ -30,20 +30,19 @@ public class BookstrapData implements CommandLineRunner {
         eric.setLastName("Evans");
 
         Book ddd = new Book();
-        ddd.setTitle("Domain Driven Developmet");
+        ddd.setTitle("Domain Driven Design");
         ddd.setIsbn("123456");
 
         Author ericSaved = authorRepository.save(eric);
         Book dddSaved = bookRepository.save(ddd);
 
-
         Author rod = new Author();
-        eric.setFirstName("Rod");
-        eric.setLastName("Johnson");
+        rod.setFirstName("Rod");
+        rod.setLastName("Johnson");
 
         Book noEJB = new Book();
-        ddd.setTitle("J2EE Development without EJB");
-        ddd.setIsbn("325465");
+        noEJB.setTitle("J2EE Development without EJB");
+        noEJB.setIsbn("54757585");
 
         Author rodSaved = authorRepository.save(rod);
         Book noEJBSaved = bookRepository.save(noEJB);
@@ -56,11 +55,9 @@ public class BookstrapData implements CommandLineRunner {
         publisher.setAddress("123 Main");
         Publisher savedPublisher = publisherRepository.save(publisher);
 
-
         dddSaved.setPublisher(savedPublisher);
         noEJBSaved.setPublisher(savedPublisher);
 
-//        Persist Data
         authorRepository.save(ericSaved);
         authorRepository.save(rodSaved);
         bookRepository.save(dddSaved);
@@ -69,7 +66,10 @@ public class BookstrapData implements CommandLineRunner {
         System.out.println("In Bootstrap");
         System.out.println("Author Count: " + authorRepository.count());
         System.out.println("Book Count: " + bookRepository.count());
-        System.out.println("Publishers count : " +  publisherRepository.count());
+
+
+
+        System.out.println("Publisher Count: " + publisherRepository.count());
 
 
     }
